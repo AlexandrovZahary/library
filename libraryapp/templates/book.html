@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+{% load static %}
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Book</title>
+    <link rel="stylesheet" href="{% static 'styles/style.css' %}">
+</head>
+<body class="background">
+    <div class="flex margin_top_5 width">
+        <a href="http://127.1.0.0:8000/home"><button class="button">Главная</button></a>
+        <a href="http://127.1.0.0:8000/books" class="margin_left_5"><button class="button">Книги</button></a>
+        <div class="flex hor_center_2 text_size_5 text dop_style_6">Блюдо по вашему выбору</div>
+    </div>
+    <div class="flex">
+        <div class="width3 margin_top_5 text_size_3 text">
+            <p>Название: {{ book.title }}</p>
+            <p>Автор: {{ book.author }}</p>
+            <p>Год публикации: {{ book.year_of_publication }}</p>
+            <p>Жанр: {{ book.genre }}</p>
+            <p>Рейтинг: {{ rating }}</p>
+            <p>Тэги:</p>
+            <div class="flex">
+                {% for tag in tags %}
+                    <div class="dop_style_4 dop_style_5">{{ tag.name }}</div>
+                {% endfor %}
+            </div>
+            {% if book.quantity > 0 %}
+                <div class="flex margin_top_5">
+                    Книг в библиотеке: {{ book.quantity }}
+                </div>
+            {% endif %}
+            {% if book.quantity == 0 %}
+                Нет в библиотеке
+            {% endif %}
+        </div>
+        <div class="block3 margin_top_5 margin_left_10">
+            <p class="text_size_3 text">Фрагмент текста:</p>
+            <div class="text_size_2 text">{{ book.text }}</div>
+        </div>
+    </div>
+    <div>
+        <p class="text_size_3 text">Комментарии:</p>
+        <div>
+            {% for comment in comments %}
+                <div class="dop_style_5">
+                    <p class="text_size_3 text">{{ comment.user }}</p>
+                    <div class="text_size_2 text">{{ comment.comment }}</div>
+                    {% if href or user == comment.user %}
+                        <p><a href="{% url 'delete_comment' book.id comment.id %}"><button class="button">Удалить комментарий</button></a></p>
+                    {% endif %}
+                </div>
+            {% endfor %}
+        </div>
+        <div class="dop_style_5">
+            <p class="text_size_3 text">Добавить комментарий</p>
+            <div class="text">
+                {% if form %}
+                <form action="" method="POST">
+                    {% csrf_token %}
+                    {{ form.as_p }}
+                    <button class="button width2">Добавить комментарий</button>
+                </form>
+                {% endif %}
+            </div>
+        </div>
+    </div>
+</body>
+</html>

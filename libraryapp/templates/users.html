@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+{% load static %}
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Users</title>
+    <link rel="stylesheet" href="{% static 'styles/style.css' %}">
+</head>
+<body class="background">
+    {% if access_level == 'Библиотекарь' %}
+        <div class="flex margin_top_5 width">
+            <div class="flex width3 hor_left_2">
+                <a href="http://127.1.0.0:8000/home"><button class="button dop_style_1">Главная</button></a>
+            </div>
+            <div class="flex width3 hor_center_2">
+                <h1 class="text_size_3 text"></h1>
+            </div>
+        </div>
+    {% endif %}
+    {% if access_level == 'Администратор' %}
+        <div class="flex margin_top_5 width">
+            <div class="flex width hor_left_2">
+                <a href="http://127.1.0.0:8000/home"><button class="button dop_style_1">Главная</button></a>
+            </div>
+            <div class="flex width hor_center_2">
+                <h1 class="text_size_5 text">Учёт грешников</h1>
+            </div>
+            <div class="flex width hor_right_2">
+                <a href="{%url 'add_user'%}"><button class="button dop_style_1">Добавить пользователя</button></a>
+                <a href="{%url 'change_user'%}"><button class="button dop_style_1">Изменить пользователя</button></a>
+                <a href="{%url 'delete_user'%}"><button class="button dop_style_1">Удалить пользователя</button></a>
+            </div>
+        </div>
+    {% endif %}
+    <div class="margin_top_10">
+        <div class="margin_top_5">
+            {% for user in users %}
+                {% if user.first_name != '' and user.last_name != '' %}
+                    <a href="{% url 'user' user.id %}" class="book2"><div class="width3"><button class="book">{{ user.username }}</button></div></a>
+                {% endif %}
+            {% endfor %}
+        </div>
+    </div>
+</body>
+</html>
