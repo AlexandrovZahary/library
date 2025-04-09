@@ -10,7 +10,7 @@
     {% if access_level == 'Библиотекарь' %}
         <div class="flex margin_top_5 width">
             <div class="flex width3 hor_left_2">
-                <a href="http://127.1.0.0:8000/home"><button class="button dop_style_1">Главная</button></a>
+                <a href="{% url 'home' %}"><button class="button dop_style_1">Главная</button></a>
             </div>
             <div class="flex width3 hor_center_2">
                 <h1 class="text_size_3 text"></h1>
@@ -20,10 +20,7 @@
     {% if access_level == 'Администратор' %}
         <div class="flex margin_top_5 width">
             <div class="flex width hor_left_2">
-                <a href="http://127.1.0.0:8000/home"><button class="button dop_style_1">Главная</button></a>
-            </div>
-            <div class="flex width hor_center_2">
-                <h1 class="text_size_5 text">Учёт грешников</h1>
+                <a href="{% url 'home' %}"><button class="button dop_style_1">Главная</button></a>
             </div>
             <div class="flex width hor_right_2">
                 <a href="{%url 'add_user'%}"><button class="button dop_style_1">Добавить пользователя</button></a>

@@ -8,9 +8,8 @@
 </head>
 <body class="background">
     <div class="flex margin_top_5 width">
-        <a href="http://127.1.0.0:8000/home"><button class="button">Главная</button></a>
-        <a href="http://127.1.0.0:8000/users" class="margin_left_5"><button class="button">Пользователи</button></a>
-        <div class="flex hor_center_2 text_size_5 text dop_style_6">Личные данные грешника</div>
+        <a href="{% url 'home' %}"><button class="button">Главная</button></a>
+        <a href="users" class="margin_left_5"><button class="button">Пользователи</button></a>
     </div>
     <div class="width3 margin_top_5 text_size_3 text">
         <p>Имя: {{ user.first_name }}</p>

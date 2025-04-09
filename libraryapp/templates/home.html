@@ -7,9 +7,6 @@
     <link rel="stylesheet" href="{% static 'styles/style.css' %}">
 </head>
 <body class="background">
-    <div class="flex hor_center_2 text_size_3 margin_top_10 text">
-        <h1>Немного о правах и обязанностях</h1>
-    </div>
     <div class="hor_center_1 margin_top_10">
         <p class="text_size_3 text">Имя: {{ self.first_name }}</p>
         <p class="text_size_3 text">Фамилия: {{ self.last_name }}</p>
@@ -39,19 +36,19 @@
         {% endif %}
         <br>
         <br>
-        <p><a href="http://127.1.0.0:8000/change_data"><button class="button">Изменить данные</button></a></p>
+        <p><a href="{% url 'change_data' %}"><button class="button">Изменить данные</button></a></p>
     </div>
     <div class="hor_center_1">
         {% if access_level == "Читатель" %}
-            <p><a href="http://127.1.0.0:8000/books"><button class="button">Книги</button></a></p>
+            <p><a href="{% url 'books' %}"><button class="button">Книги</button></a></p>
         {% endif %}
         {% if access_level == "Библиотекарь" or access_level == "Администратор" %}
-            <p><a href="http://127.1.0.0:8000/books"><button class="button">Книги</button></a></p>
-            <p><a href="http://127.1.0.0:8000/users"><button class="button">Пользователи</button></a></p>
+            <p><a href="{% url 'books' %}"><button class="button">Книги</button></a></p>
+            <p><a href="{% url 'users' %}"><button class="button">Пользователи</button></a></p>
         {% endif %}
     </div>
     <div class="hor_center_1">
-        <p><a href="http://127.1.0.0:8000/sign_out"><button class="button">Выйти</button></a></p>
+        <p><a href="{% url 'sign_out' %}"><button class="button">Выйти</button></a></p>
     </div>
 </body>
 </html>

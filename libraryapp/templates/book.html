@@ -8,9 +8,8 @@
 </head>
 <body class="background">
     <div class="flex margin_top_5 width">
-        <a href="http://127.1.0.0:8000/home"><button class="button">Главная</button></a>
-        <a href="http://127.1.0.0:8000/books" class="margin_left_5"><button class="button">Книги</button></a>
-        <div class="flex hor_center_2 text_size_5 text dop_style_6">Блюдо по вашему выбору</div>
+        <a href="{% url 'home' %}"><button class="button">Главная</button></a>
+        <a href="{% url 'books' %}" class="margin_left_5"><button class="button">Книги</button></a>
     </div>
     <div class="flex">
         <div class="width3 margin_top_5 text_size_3 text">
