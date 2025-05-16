@@ -5,6 +5,9 @@ from django.contrib.auth.models import AbstractUser
 class Tag(models.Model):
     name = models.CharField(max_length=100)
 
+    def __str__(self):
+        return self.name
+
 
 class Book(models.Model):
     title = models.CharField(max_length=100)
@@ -40,7 +43,7 @@ class Book(models.Model):
 
 
 class User(AbstractUser):
-    phone = models.CharField(max_length=11, name="Телефон")
+    phone = models.CharField(max_length=11)
 
     def __str__(self):
         return self.username

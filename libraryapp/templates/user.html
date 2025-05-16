@@ -9,14 +9,14 @@
 <body class="background">
     <div class="flex margin_top_5 width">
         <a href="{% url 'home' %}"><button class="button">Главная</button></a>
-        <a href="users" class="margin_left_5"><button class="button">Пользователи</button></a>
+        <a href="{% url 'users' %}" class="margin_left_5"><button class="button">Пользователи</button></a>
     </div>
     <div class="width3 margin_top_5 text_size_3 text">
         <p>Имя: {{ user.first_name }}</p>
         <p>Фамилия: {{ user.last_name }}</p>
         <p>Логин: {{ user.username }}</p>
         <p>Email: {{ user.email }}</p>
-        <p>Телефон: {{ user.Телефон }}</p>
+        <p>Телефон: {{ user.phone }}</p>
         <p>Уровень доступа: {{ user_access_level }}</p>
         <div>
             <p class="text_size_3 text">Список взятых книг:</p>

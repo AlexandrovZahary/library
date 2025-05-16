@@ -19,7 +19,7 @@ def sign_up(request):
                 last_name=form.cleaned_data["last_name"],
                 username=form.cleaned_data["username"],
                 email=form.cleaned_data["email"],
-                Телефон=form.cleaned_data["Телефон"]
+                phone=form.cleaned_data["phone"]
             )
             new_user.set_password(
                 form.cleaned_data["password"]
@@ -124,7 +124,7 @@ def change_data(request):
             user.last_name = form.cleaned_data["last_name"]
             user.username = form.cleaned_data["username"]
             user.email = form.cleaned_data["email"]
-            user.Телефон = form.cleaned_data["Телефон"]
+            user.phone = form.cleaned_data["phone"]
             user.set_password(
                 form.cleaned_data["password"]
             )
@@ -191,7 +191,7 @@ def book(request, id):
         href = True
     rating = 0
     quantity = 0
-    for comment in useful_comments:
+    for comment in all_comments:
         rating = rating + comment.rating
         quantity = quantity + 1
     if quantity != 0:
@@ -328,7 +328,7 @@ def add_user(request):
                 username=form.cleaned_data["username"],
                 password=form.cleaned_data["password"],
                 email=form.cleaned_data["email"],
-                Телефон=form.cleaned_data["Телефон"]
+                phone=form.cleaned_data["phone"]
             )
             if form.cleaned_data["access_level"] == "librarian":
                 user.groups.set([librarians, ])

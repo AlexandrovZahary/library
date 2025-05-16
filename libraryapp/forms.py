@@ -5,7 +5,7 @@ from .models import *
 class SignUp(forms.ModelForm):
     class Meta:
         model = User
-        fields = ("first_name", "last_name", "username", "password", "email", "Телефон")
+        fields = ("first_name", "last_name", "username", "password", "email", "phone")
 
 
 class SignIn(forms.Form):
@@ -43,7 +43,7 @@ class DeleteBook(forms.Form):
 class AddUser(forms.ModelForm):
     class Meta:
         model = User
-        fields = ("first_name", "last_name", "username", "password", "email", "Телефон")
+        fields = ("first_name", "last_name", "username", "password", "email", "phone")
 
 
 class ChangeUser(forms.Form):

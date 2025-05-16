@@ -13,7 +13,8 @@
             {% if form %}
             <form action="" method="POST">
                 {% csrf_token %}
-                {{ form.as_p }}
+                <p>Логин: {{ form.username }}</p>
+                <p>Пароль: {{ form.password }}</p>
                 <button class="button width">Войти</button>
             </form>
             {% endif %}
