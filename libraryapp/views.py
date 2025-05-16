@@ -191,7 +191,7 @@ def book(request, id):
         href = True
     rating = 0
     quantity = 0
-    for comment in all_comments:
+    for comment in useful_comments:
         rating = rating + comment.rating
         quantity = quantity + 1
     if quantity != 0:
